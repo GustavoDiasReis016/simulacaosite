@@ -41,7 +41,7 @@ const services = [
   { icon: "🧹", t: "Upgrade e Limpeza Completa", d: "Mais desempenho e vida útil" },
 ];
 
-const streams = ["NETFLIX", "Prime Video", "Disney+", "YouTube", "Globoplay", "Star+", "HBO Max", "Apple TV+", "Paramount+", "E muito mais!"];
+const streams = ["NETFLIX", "Prime Video", "Disney+", "YouTube", "Globoplay", "Star+", "HBO Max", "Apple TV+", "Paramount+", "E muito mais!", "A partir de R$ 30/mês"];
 
 const cols = ["Samsung Tizen", "LG webOS", "Android TV / TV Box", "Roku", "MSX Samsung/LG", "Android Celular", "iOS iPhone/iPad", "Windows PC", "Xbox", "Apple TV tvOS", "Outros Sistemas"];
 type C = "D" | "V" | "E" | string;
@@ -117,6 +117,7 @@ function Index() {
               <a key={h} href={h} className="text-sm font-semibold text-muted-foreground transition hover:text-primary">{l}</a>
             ))}
           </nav>
+          <a href="#planos" className="hidden rounded-full border border-gold/50 bg-gold/10 px-4 py-2 text-sm font-bold text-gold transition hover:scale-105 lg:block">IPTV a partir de <span className="font-display text-base">R$ 30</span>/mês</a>
           <a href={WA} target="_blank" rel="noreferrer" className="hidden rounded-full bg-success px-5 py-2 text-sm font-bold text-background transition hover:scale-105 md:block">WhatsApp</a>
           <button onClick={() => setMenu(!menu)} className="text-2xl md:hidden" aria-label="Menu">☰</button>
         </div>
@@ -144,6 +145,11 @@ function Index() {
             <a href={WA} target="_blank" rel="noreferrer" className="animate-pulse-ring rounded-full bg-success px-7 py-4 font-bold text-background transition hover:scale-105">💬 Solicite seu orçamento</a>
             <a href="#iptv" className="rounded-full border border-primary px-7 py-4 font-bold text-primary transition hover:bg-primary hover:text-primary-foreground">Ver canais IPTV</a>
           </div>
+          <a href="#planos" className="mt-6 inline-flex flex-wrap items-center gap-3 rounded-2xl border border-gold/40 bg-card px-5 py-3 transition hover:-translate-y-1 hover:border-gold">
+            <span className="text-2xl">🔥</span>
+            <span className="text-sm text-muted-foreground">IPTV com tudo liberado a partir de</span>
+            <span className="font-display text-3xl leading-none text-gold">R$ 30<span className="text-sm text-muted-foreground">/mês</span></span>
+          </a>
           <div className="mt-10 grid max-w-md grid-cols-3 gap-4">
             {[[11, "+", "Aplicativos"], [100, "%", "Brasil"], [24, "h", "Suporte"]].map(([n, s, l]) => (
               <div key={l as string} className="rounded-2xl border border-border bg-card/60 p-4 text-center">
@@ -222,6 +228,11 @@ function Index() {
             ))}
           </div>
           <p className="mt-4 text-center text-xs text-muted-foreground">Conteúdo similar ao das maiores plataformas de streaming.</p>
+          <a href="#planos" className="reveal mt-10 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 rounded-3xl border border-gold/40 bg-card px-8 py-7 text-center transition duration-500 hover:-translate-y-1 hover:border-gold hover:glow">
+            <span className="font-display text-2xl">Com tudo liberado a partir de</span>
+            <span className="font-display text-5xl text-gold md:text-6xl">R$ 30<span className="text-xl text-muted-foreground">/mês</span></span>
+            <span className="rounded-full bg-success px-6 py-3 font-bold text-background">Peça seu teste grátis →</span>
+          </a>
         </div>
       </section>
 
@@ -329,7 +340,7 @@ function Index() {
         <div className="reveal grid items-center gap-10 overflow-hidden rounded-[2.5rem] border border-primary/40 bg-card p-8 md:grid-cols-2 md:p-14 glow">
           <div>
             <h2 className="font-display text-4xl md:text-5xl">Fale com a gente <span className="text-gradient">agora!</span></h2>
-            <p className="mt-4 text-muted-foreground">Cidade de São Paulo · Atendimento a todo Brasil. Escaneie o QR Code ou clique no botão.</p>
+            <p className="mt-4 text-muted-foreground">Cidade de São Paulo · Atendimento a todo Brasil. IPTV a partir de <b className="text-gold">R$ 30/mês</b>. Escaneie o QR Code ou clique no botão.</p>
             <a href={WA} target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-3 rounded-full bg-success px-8 py-5 font-display text-2xl text-background animate-pulse-ring transition hover:scale-105">💬 (11) 99768-1821</a>
           </div>
           <img src={qr.url} alt="QR Code do WhatsApp" className="w-full rounded-3xl transition duration-700 hover:rotate-1 hover:scale-105" />
@@ -342,6 +353,7 @@ function Index() {
       </footer>
 
       {/* floating whatsapp */}
+      <a href="#planos" aria-label="Ver plano de IPTV a partir de R$ 30 por mês" className="fixed bottom-28 right-7 z-50 rounded-full border border-gold/60 bg-card px-4 py-2 text-center font-display text-sm text-gold shadow-xl transition hover:scale-105">R$ 30<span className="text-xs text-muted-foreground">/mês</span></a>
       <a href={WA} target="_blank" rel="noreferrer" aria-label="WhatsApp" className="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-success text-3xl animate-pulse-ring transition hover:scale-110">💬</a>
     </div>
   );
