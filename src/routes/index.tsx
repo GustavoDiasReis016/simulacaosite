@@ -6,6 +6,7 @@ import rx from "@/assets/rx-purple.png.asset.json";
 import noma from "@/assets/noma-app.png.asset.json";
 import compat from "@/assets/compatibilidade.png.asset.json";
 import hd from "@/assets/hd-player.png.asset.json";
+import preco from "@/assets/preco-iptv.png.asset.json";
 import qr from "@/assets/whatsapp-qr.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -28,6 +29,10 @@ export const Route = createFileRoute("/")({
 });
 
 const WA = "https://wa.me/5511997681821?text=Ol%C3%A1!%20Vim%20pelo%20site%20TopPlay";
+const WA_TESTE = "https://wa.me/5511997681821?text=Ol%C3%A1!%20Quero%20um%20teste%20gr%C3%A1tis%20de%20IPTV";
+const PAINEL = "https://seventvpainel.top/#/rs/V01pR45Dd0/OxLAbEpDZ7";
+const CANAL = "https://whatsapp.com/channel/0029Vb9JkKW96H4XG4scsq3a";
+const extraApps = ["IBO Player", "BOB Player", "IBO Player Pro", "VU Player Pro", "Fox Player", "Zuxo", "SevenTV", "Flexplay"];
 
 const services = [
   { icon: "🖥️", t: "Montagem e Manutenção", d: "de Computadores e Notebooks" },
@@ -89,7 +94,7 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
 function Index() {
   useReveal();
   const [menu, setMenu] = useState(false);
-  const nav = [["#servicos", "Informática"], ["#iptv", "Canais IPTV"], ["#apps", "Aplicativos"], ["#compatibilidade", "Compatibilidade"], ["#contato", "Contato"]];
+  const nav = [["#servicos", "Informática"], ["#iptv", "Canais IPTV"], ["#planos", "Planos"], ["#apps", "Aplicativos"], ["#compatibilidade", "Compatibilidade"], ["#contato", "Contato"]];
 
   return (
     <div className="relative min-h-screen bg-background text-foreground">
@@ -220,6 +225,42 @@ function Index() {
         </div>
       </section>
 
+      {/* preço + teste + revenda */}
+      <section id="planos" className="relative z-10 mx-auto max-w-7xl px-5 py-24">
+        <div className="grid items-center gap-10 md:grid-cols-2">
+          <div className="reveal relative">
+            <div className="absolute inset-0 rounded-3xl bg-primary/30 blur-3xl" />
+            <img src={preco.url} alt="Com tudo liberado a partir de R$ 30 por mês" className="relative mx-auto w-full max-w-sm rounded-3xl animate-floaty" />
+          </div>
+          <div className="reveal">
+            <span className="font-bold uppercase tracking-widest text-primary">Plano IPTV</span>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl">Com tudo <span className="text-gradient">liberado!</span></h2>
+            <div className="mt-6 flex items-end gap-3">
+              <span className="text-xl text-muted-foreground">a partir de</span>
+              <span className="font-display text-7xl text-gold md:text-8xl">R$ 30</span>
+              <span className="mb-3 text-muted-foreground">/mês</span>
+            </div>
+            <p className="mt-4 text-muted-foreground">Canais, filmes e séries na TV, celular, PC e TV Box.</p>
+            <a href={WA_TESTE} target="_blank" rel="noreferrer" className="mt-8 inline-block animate-pulse-ring rounded-full bg-success px-8 py-5 font-display text-xl text-background transition hover:scale-105">🎁 Peça seu teste grátis</a>
+          </div>
+        </div>
+
+        <div className="mt-20 grid gap-6 md:grid-cols-2">
+          <div className="reveal rounded-3xl border border-secondary/50 bg-card p-8 transition hover:-translate-y-2">
+            <span className="text-4xl">💼</span>
+            <h3 className="mt-4 font-display text-3xl">Seja um <span className="text-gold">revendedor</span></h3>
+            <p className="mt-3 text-muted-foreground">Trabalhe de casa com baixo custo de investimento inicial. Abra seu painel de revenda e venda junto com a gente.</p>
+            <a href={PAINEL} target="_blank" rel="noreferrer" className="mt-6 inline-block rounded-full bg-gold px-7 py-4 font-bold text-secondary-foreground transition hover:scale-105">Cadastrar meu painel</a>
+          </div>
+          <div className="reveal rounded-3xl border border-success/50 bg-card p-8 transition hover:-translate-y-2">
+            <span className="text-4xl">📢</span>
+            <h3 className="mt-4 font-display text-3xl">Canal <span className="text-gradient">TopPlay Suporte</span></h3>
+            <p className="mt-3 text-muted-foreground">Siga nosso canal no WhatsApp e receba novidades, avisos e suporte.</p>
+            <a href={CANAL} target="_blank" rel="noreferrer" className="mt-6 inline-block rounded-full bg-success px-7 py-4 font-bold text-background transition hover:scale-105">Ver canal</a>
+          </div>
+        </div>
+      </section>
+
       {/* apps */}
       <section id="apps" className="relative z-10 mx-auto max-w-7xl px-5 py-24">
         <div className="reveal text-center">
@@ -232,6 +273,11 @@ function Index() {
               <div className="overflow-hidden bg-background"><img src={img} alt={t} className="aspect-square w-full object-contain transition duration-700 group-hover:scale-110" /></div>
               <div className="p-6"><h3 className="text-xl font-bold">{t}</h3><p className="mt-2 text-sm text-muted-foreground">{d}</p></div>
             </div>
+          ))}
+        </div>
+        <div className="reveal mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          {extraApps.map((a) => (
+            <div key={a} className="flex items-center justify-center gap-2 rounded-2xl border border-border bg-card py-6 font-display text-lg transition hover:scale-105 hover:border-primary hover:text-primary">▶ {a}</div>
           ))}
         </div>
       </section>
